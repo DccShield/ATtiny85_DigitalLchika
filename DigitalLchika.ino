@@ -17,24 +17,19 @@
 //
 //--------------------------------------------------------------------------------
 
-
 #include  <arduino.h>
 //Task Schedule
 unsigned long gPreviousL5 = 0;
 
 #define ON 1
 #define OFF 0
-#define UP 1
-#define DOWN 0
-
 
 #define PIN_AUX1 0      // Atiny85 PB0(5pin)O7 analogwrite head light
 #define PIN_AUX2 1      // Atiny85 PB1(6pin)O6 analogwrite tail light
 #define PIN_AUX3 3      // Atint85 PB3(2pin)O3             sign light
 #define PIN_AUX4 4      // Atiny85 PB4(3pin)O2 analogwrite room light
+
 void setup() {
-//  TCCR1 = 0<<CTC1 | 0<<PWM1A | 0<<COM1A0 | 1<<CS10;
-  
   pinMode(PIN_AUX1, OUTPUT);
   digitalWrite(PIN_AUX1, OFF);
   pinMode(PIN_AUX2, OUTPUT);
@@ -54,7 +49,6 @@ void loop() {
 
 void led(){
   static char state = 0;
-
 
   switch(state){
     case 0:
